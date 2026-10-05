@@ -42,31 +42,41 @@ export default function App() {
 
   if (temPermissao === null) {
 
-    return <Text>Solicitndo permissão para usar a câmera</Text>;
+    return <Text>Solicitando permissão para usar a câmera</Text>;
   }
 
   if (temPermissao === false) {
 
-    return <Text>Sem acesso á câmera</Text>;
+    return <Text>Sem acesso à câmera</Text>;
   }
 
   return (
+
     <View>
 
-      <CameraView onBarcodeScanned={digitalizado ? undefined : lidarComCodigoDigitalizado}
+      <CameraView
+        onBarcodeScanned={digitalizado ? undefined : lidarComCodigoDigitalizado}
         barcodeScannerSettings={{ barcodeTypes: ['qr', 'pdf417'] }}
-                  style={StyleSheet.absoluteFillObject} />
+        style={StyleSheet.absoluteFillObject}
+      />
 
-      <MaterialCommunityIcons name="qrcode-scan" size={100}
-                              color='orange' style={styles.icone} />
+      <MaterialCommunityIcons
+        name="qrcode-scan"
+        size={100}
+        color='orange'
+        style={styles.icone}
+      />
 
       <Text style={styles.titulo}>Leitor de QR Code</Text>
 
       {digitalizado &&
 
         (
-          <Button color='orange' title={"Toque para digitalizar novamente"}
-            onPress={() => { setDigitalizado(false) }} />
+          <Button
+            color='orange'
+            title={"Toque para digitalizar novamente"}
+            onPress={() => { setDigitalizado(false) }}
+          />
         )
 
       }
@@ -87,11 +97,11 @@ export default function App() {
 
 const styles = StyleSheet.create({
 
-  container:{
+  container: {
     flex: 1,
-    flexDirection:'column',
-    justifyContent:'flex-start',
-    alignItems:'center',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
 
   icone: {
@@ -100,12 +110,12 @@ const styles = StyleSheet.create({
 
   titulo: {
     fontSize: 24,
-    fontWeight:'bold',
+    fontWeight: 'bold',
     marginBottom: 20,
-    color:'darkorange',
+    color: 'darkorange',
   },
 
-  setBotao:{
+  setBotao: {
     marginTop: 15,
   }
 
